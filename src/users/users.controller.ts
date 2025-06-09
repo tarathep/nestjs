@@ -1,23 +1,19 @@
-import { Controller, Get, Post, Patch, Put, Delete,Param, Query, ParseIntPipe, Body,Headers, Ip } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Put, Delete,Param, Query, ParseIntPipe, Body,Headers, Ip, DefaultValuePipe } from '@nestjs/common';
 
 @Controller('users')
 export class UsersController {
 
-    @Get('/:id/{:optional}')
+    @Get('/:id/')
     public getUsers(
         @Param('id', ParseIntPipe) id: number | undefined,
-        @Param('optional') optional?: number | undefined,
-        @Query('limit', ParseIntPipe) limit?: number
+        @Query('limit',new DefaultValuePipe(10), ParseIntPipe) limit?: number,
+        @Query('page',new DefaultValuePipe(1) ,ParseIntPipe) page?: number,
     ) {
-        console.log(typeof id);
-        console.log(typeof limit);
-        console.log(optional);
+        console.log( limit);
+        console.log( page);
 
-        if (optional) {
-        return `ID is ${id} and optional parameter is ${optional}`;
-        } else {
-        return `ID is ${id} and no optional parameter`;
-        }
+        return `You sent a get request to users endpoint`;
+        
     }
 
     @Post()

@@ -1,3 +1,2 @@
-GET http://localhost:3000/users/12345/A
+GET http://localhost:3000/users/1234/
 ?limit=10
-&offset=20
