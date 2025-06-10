@@ -8,6 +8,7 @@ async function bootstrap() {
     {
       whitelist: true,
       forbidNonWhitelisted: true,
+      transform: true, //incomming response will be transformed to the DTO type
     }
   ))
   await app.listen(process.env.PORT ?? 3000);
