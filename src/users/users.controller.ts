@@ -2,9 +2,15 @@ import { Controller, Get, Post, Patch, Put, Delete,Param, Query, ParseIntPipe, B
 import { CreateUserDto } from './dtos/create-user.dto';
 import { GetUsersParamDto } from './dtos/get-users-param.dto';
 import { PatchUserDto } from './dtos/patch-user-dto';
+import { UsersService } from './providers/users.service';
 
 @Controller('users')
 export class UsersController {
+
+    constructor(
+        // Injecting the UsersService to use its methods
+        private readonly usersService: UsersService,
+    ){}
 
     @Get('/:id/')
     public getUsers(
