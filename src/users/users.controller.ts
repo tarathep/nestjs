@@ -18,9 +18,13 @@ export class UsersController {
         @Query('limit',new DefaultValuePipe(10), ParseIntPipe) limit?: number,
         @Query('page',new DefaultValuePipe(1) ,ParseIntPipe) page?: number,
     ) {
-       console.log(getUsersParamDto);
+       
 
-        return `You sent a get request to users endpoint`;
+        return this.usersService.findAll(
+            getUsersParamDto,
+            limit ?? 10,
+            page ?? 1
+        );
         
     }
 
