@@ -1,6 +1,8 @@
-import { IsArray, IsEnum, IsISO8601, IsJSON, IsNotEmpty, IsOptional, IsString, IsUrl, isURL, Matches, Min, MinLength } from "class-validator";
+import { IsArray, IsEnum, IsISO8601, IsJSON, IsNotEmpty, IsOptional, IsString, IsUrl, Matches, MinLength, ValidateNested } from "class-validator";
 import { PostStatus } from "../enums/postStatus.enum";
 import { PostType } from "../enums/postType.enum";
+import { CreatePostMetaOptionsDto } from "./create-post.meta-options.dto";
+import { Type } from "class-transformer";
 
 export class CreatePostDto {
     @IsString()
@@ -46,5 +48,9 @@ export class CreatePostDto {
     @MinLength(3, { each: true }) // Minimum length for each tag
     tags?: string[];
 
-    metaOption:[{key: 'sidebarEnabled'; value: true}];
+    @IsOptional()
+    @IsArray()
+    @ValidateNested({ each: true })
+    @Type(() => CreatePostMetaOptionsDto)
+    metaOption: CreatePostMetaOptionsDto[];
 }
