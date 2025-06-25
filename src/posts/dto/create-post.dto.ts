@@ -52,5 +52,5 @@ export class CreatePostDto {
     @IsArray()
     @ValidateNested({ each: true })
     @Type(() => CreatePostMetaOptionsDto)
-    metaOption: CreatePostMetaOptionsDto[];
+    metaOptions: CreatePostMetaOptionsDto[];
 }

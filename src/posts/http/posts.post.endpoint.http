@@ -1,0 +1,20 @@
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "title": "What's new with NestJS",
+    "postType": "post",
+    "slug": "new-with-nestjs",
+    "status": "draft",
+    "content": "test content",
+    "schema": "{\r\n \"@context\": \"http:\/\/schema.org\",\r\n \"@type\": \"Person\"\r\n }",
+    "featuredImageUrl": "http://localhost.com/image1.jpg",
+    "publishOn": "2025-06-22T00:00:00.000",
+    "tags":["nestjs", "typescript"],
+    "metaOptions": [
+        {
+            "key": "testKey",
+            "value": 20
+        }
+    ]
+}
