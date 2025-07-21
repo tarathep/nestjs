@@ -6,6 +6,8 @@ import { PostsModule } from './posts/posts.module';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
+import { TagsModule } from './tags/tags.module';
+import { TagController } from './tag/tag.controller';
 
 @Module({
   imports: [UsersModule, PostsModule, AuthModule, TypeOrmModule.forRootAsync({
@@ -21,8 +23,8 @@ import { User } from './users/user.entity';
       host: '172.16.10.10',
       database: 'nestjs-blog',
     }),
-  })],
-  controllers: [AppController],
+  }), TagsModule],
+  controllers: [AppController, TagController],
   providers: [AppService],
 })
 export class AppModule {}
