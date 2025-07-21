@@ -1,7 +1,7 @@
 import { IsArray, IsEnum, IsISO8601, IsJSON, IsNotEmpty, IsOptional, IsString, IsUrl, Matches, MaxLength, MinLength, ValidateNested } from "class-validator";
 import { PostStatus } from "../enums/postStatus.enum";
 import { PostType } from "../enums/postType.enum";
-import { CreatePostMetaOptionsDto } from "./create-post.meta-options.dto";
+import { CreatePostMetaOptionsDto } from "../../meta-options/dto/create-post.meta-options.dto";
 import { Type } from "class-transformer";
 import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 
