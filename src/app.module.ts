@@ -18,7 +18,7 @@ import { User } from './users/user.entity';
       port: 5432,
       username: 'postgres',
       password: 'password',
-      host: 'ndth-payment.site',
+      host: '172.16.10.10',
       database: 'nestjs-blog',
     }),
   })],
